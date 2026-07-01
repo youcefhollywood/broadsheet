@@ -79,6 +79,8 @@ def _enforce_budget(text, budget=WORLD_STATE_BUDGET_CHARS):
 def _call_flash(prompt, api_key=None):
     """Isolated DashScope call (runs on your machine)."""
     import dashscope
+    # Alibaba Cloud Qwen (DashScope) — international endpoint. Base URL:
+    # https://dashscope-intl.aliyuncs.com (proof of Qwen Cloud API usage).
     dashscope.base_http_api_url = "https://dashscope-intl.aliyuncs.com/api/v1"
     key = api_key or os.getenv("DASHSCOPE_API_KEY")
     resp = dashscope.MultiModalConversation.call(
